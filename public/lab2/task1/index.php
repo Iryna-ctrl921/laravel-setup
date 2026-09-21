@@ -1,13 +1,12 @@
 <?php
 if (isset($_POST['delete_cookie'])) {
     setcookie("username", "", time() - 3600, "/");
-    header("Location: index.php"); // Редірект для оновлення сторінки
+    header("Location: index.php"); 
     exit;
 }
 
 if (isset($_POST['username']) && !empty(trim($_POST['username']))) {
     $name = trim($_POST['username']);
-    // Зберігаємо cookie на 7 днів (7 днів * 24 год * 60 хв * 60 сек)
     setcookie("username", $name, time() + (7 * 24 * 60 * 60), "/");
     header("Location: index.php");
     exit;

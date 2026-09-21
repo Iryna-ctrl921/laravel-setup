@@ -2,8 +2,8 @@
 session_start();
 
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    session_unset(); // Очищає всі змінні сесії
-    session_destroy(); // Знищує саму сесію
+    session_unset(); 
+    session_destroy(); 
     header("Location: index.php");
     exit;
 }

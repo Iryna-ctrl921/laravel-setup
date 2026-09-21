@@ -6,7 +6,6 @@ $message = "";
 
 if (isset($_SESSION['user_logged_in'])) {
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout_duration) {
-        // Якщо час минув
         session_unset();
         session_destroy();
         $message = "Ваша сесія завершилась через неактивність (більше 5 хвилин). Увійдіть знову.";
