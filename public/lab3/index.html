@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завантаження файлів та робота з текстом</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-section { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="form-section">
+        <h2>Форма для завантаження файлу</h2>
+        <form action="process.php" method="POST" enctype="multipart/form-data">
+            <label for="fileUpload">Оберіть зображення (png, jpg, jpeg до 2 МБ):</label><br><br>
+            <input type="file" name="fileUpload" id="fileUpload" required><br><br>
+            <input type="submit" value="Завантажити на сервер">
+        </form>
+    </div>
+
+    <div class="form-section">
+        <h2>Форма для запису тексту</h2>
+        <form action="text.php" method="POST">
+            <label for="textInput">Введіть текст для логування:</label><br><br>
+            <textarea name="textInput" id="textInput" rows="4" cols="50" required></textarea><br><br>
+            <input type="submit" value="Зберегти текст">
+        </form>
+    </div>
+
+    <hr>
+    <h3><a href="list.php">Переглянути список усіх завантажених файлів</a></h3>
+
+</body>
+</html>
