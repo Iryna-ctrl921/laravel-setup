@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateTaskRequest;
 use App\Http\Resources\TaskResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
+use App\Events\TaskCreated;
 
 class TaskController extends Controller
 {
@@ -18,10 +19,10 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request): TaskResource
     {
-        $data = $request->validated();
-        
-        $task = Task::create($data);
-        return new TaskResource($task);
+    $data = $request->validated();
+    $task = Task::create($data);
+    TaskCreated::dispatch($task);
+    return new TaskResource($task);
     }
 
     public function show(Task $task): TaskResource
